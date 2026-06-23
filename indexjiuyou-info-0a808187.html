@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>九游娱乐 · 从入口到体验</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f7fa;
+            color: #1e2b30;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 1.8rem 1.2rem 3rem;
+            flex: 1;
+        }
+
+        /* ---- 开场短句 ---- */
+        .opening {
+            text-align: center;
+            margin: 1rem 0 2.2rem;
+        }
+
+        .opening em {
+            font-style: normal;
+            display: inline-block;
+            background: linear-gradient(135deg, #1f7a8c, #2c9aaf);
+            color: #fff;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 0.8rem;
+        }
+
+        .opening h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            color: #0f2e36;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .opening p {
+            font-size: 1.1rem;
+            color: #2f4858;
+            max-width: 620px;
+            margin: 0 auto;
+            background: rgba(44, 154, 175, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            border-left: 3px solid #2c9aaf;
+        }
+
+        /* ---- 承接段落 (稳定入口) ---- */
+        .bridge {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            padding: 1.8rem 1.8rem;
+            margin: 1.8rem 0 2.6rem;
+            border-radius: 24px;
+            box-shadow: 0 6px 14px rgba(31, 122, 140, 0.08);
+            border: 1px solid rgba(44, 154, 175, 0.15);
+        }
+
+        .bridge p {
+            font-size: 1.02rem;
+            margin-bottom: 1.2rem;
+            max-width: 780px;
+        }
+
+        .bridge p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bridge strong {
+            color: #1a6e7e;
+            font-weight: 600;
+        }
+
+        .bridge a {
+            color: #1a7a8c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid #86c7d6;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .bridge a:hover {
+            color: #0b4c5a;
+            border-bottom-color: #1f7a8c;
+        }
+
+        .bridge .highlight-badge {
+            display: inline-block;
+            background: #d4edf2;
+            color: #105a6a;
+            font-size: 0.8rem;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-right: 0.3rem;
+        }
+
+        /* ---- 特点列表 (网格卡片) ---- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2.2rem 0 2rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 1.6rem 1.2rem 1.4rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(31, 122, 140, 0.06);
+            border: 1px solid rgba(60, 150, 170, 0.1);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(44, 154, 175, 0.12);
+            border-color: rgba(44, 154, 175, 0.25);
+        }
+
+        .feature-card .icon {
+            font-size: 1.7rem;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            color: #1f7a8c;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f333e;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #2f4d57;
+            flex: 1;
+        }
+
+        .feature-card .tag {
+            margin-top: 0.7rem;
+            font-size: 0.75rem;
+            color: #3e6f7a;
+            background: #e4f0f3;
+            display: inline-block;
+            padding: 0.1rem 0.8rem;
+            border-radius: 12px;
+            align-self: flex-start;
+            letter-spacing: 0.2px;
+        }
+
+        /* ---- 温和结尾 (FAQ 摘要) ---- */
+        .gentle-closing {
+            background: #f7fbfd;
+            border-radius: 28px;
+            padding: 2rem 1.8rem 2.2rem;
+            margin: 2rem 0 1.5rem;
+            border: 1px solid #cde3e9;
+        }
+
+        .gentle-closing h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #124b58;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .gentle-closing h2 span {
+            background: #2c9aaf;
+            width: 6px;
+            height: 20px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #d2e5eb;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1b4e5c;
+            margin-bottom: 0.15rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #2a4e59;
+            margin: 0;
+        }
+
+        .faq-item .optional-note {
+            background: #eaf3f6;
+            border-radius: 14px;
+            padding: 0.2rem 0.8rem;
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #175a68;
+            margin-top: 0.3rem;
+        }
+
+        /* 结尾段落 & 链接自然融入 */
+        .closing-note {
+            text-align: center;
+            margin: 2rem 0 0.5rem;
+            padding: 1.2rem 1rem 0.8rem;
+            border-top: 1px solid #cde0e6;
+        }
+
+        .closing-note p {
+            font-size: 0.95rem;
+            color: #1f4b56;
+        }
+
+        .closing-note a {
+            color: #11788e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid #8cc9d8;
+            transition: border-color 0.2s;
+        }
+
+        .closing-note a:hover {
+            border-bottom-color: #0b5e6e;
+        }
+
+        /* ---- 响应式细节 ---- */
+        @media (max-width: 640px) {
+            .wrap {
+                padding: 1rem 0.9rem 2.2rem;
+            }
+            .opening h1 {
+                font-size: 1.8rem;
+            }
+            .opening p {
+                font-size: 1rem;
+            }
+            .bridge {
+                padding: 1.2rem 1rem;
+            }
+            .feature-grid {
+                gap: 1rem;
+                grid-template-columns: 1fr 1fr;
+            }
+            .feature-card {
+                padding: 1.1rem 0.9rem;
+            }
+            .gentle-closing {
+                padding: 1.5rem 1rem 1.8rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .opening h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <!-- 开场短句 -->
+    <div class="opening">
+        <em>稳定入口 · 简明界面</em>
+        <h1>九游娱乐 &middot; 直接路径</h1>
+        <p>一个直达的起点，比复杂菜单更可靠。</p>
+    </div>
+
+    <!-- 承接段落：从稳定入口和页面说明切入 -->
+    <div class="bridge">
+        <p>
+            <span class="highlight-badge">入口说明</span>
+            对于经常访问 <strong>九游娱乐</strong> 的用户来说，一个清晰、不变的地址是最基础的需求。
+            不必在多层跳转中寻找，也不必担心书签失效。当前页面即作为稳定入口，同时提供关于平台界面与服务的简要说明。
+        </p>
+        <p>
+            以下内容围绕 <a href="https://indexjiuyou.com">九游娱乐</a> 的体验特征做了整理，涵盖页面结构、功能分区以及常见问题摘要。
+            所有描述均基于公开界面与常规使用场景，力求准确但不夸大。
+        </p>
+    </div>
+
+    <!-- 特点列表：网格卡片 -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">📐</div>
+            <h3>明晰导航</h3>
+            <p>首页分区直观，主要功能入口保持在固定区域，减少认知负担。</p>
+            <span class="tag">界面</span>
+        </div>
+        <div class="feature-card">
+            <div class="icon">⚙️</div>
+            <h3>响应适配</h3>
+            <p>页面在手机与桌面端均保持可读布局，按钮及卡片间距经过调整。</p>
+            <span class="tag">体验</span>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📋</div>
+            <h3>内容分区</h3>
+            <p>信息按模块组织，标题、列表、说明彼此区隔，便于快速浏览。</p>
+            <span class="tag">结构</span>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🔄</div>
+            <h3>一致反馈</h3>
+            <p>交互元素（链接、悬停）提供轻微视觉反馈，操作预期更明确。</p>
+            <span class="tag">可用性</span>
+        </div>
+    </div>
+
+    <!-- 温和结尾：FAQ 摘要风格 -->
+    <div class="gentle-closing">
+        <h2><span></span> 常见关注点 · 摘要</h2>
+
+        <div class="faq-item">
+            <strong>页面入口是否固定？</strong>
+            <p>是的，<a href="https://indexjiuyou.com">九游娱乐</a> 的首页地址长期使用同一域名，无需每次重新查找。如有必要，可收藏当前页面。</p>
+        </div>
+        <div class="faq-item">
+            <strong>移动端浏览体验如何？</strong>
+            <p>页面采用响应式设计，卡片与文字在窄屏下自动调整间距，所有链接和按钮仍可正常点按。</p>
+            <span class="optional-note">iOS / Android 浏览器均支持</span>
+        </div>
+        <div class="faq-item">
+            <strong>信息更新频率？</strong>
+            <p>本介绍页随平台界面调整而更新，但不会频繁变动。主要内容保持稳定，避免造成混淆。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否有必要额外下载客户端？</strong>
+            <p>无需强制下载。通过浏览器直接访问即可获得完整页面，部分功能可能基于 Web 技术运行。</p>
+        </div>
+    </div>
+
+    <!-- 结尾温和收束 -->
+    <div class="closing-note">
+        <p>从稳定入口开始，逐步熟悉界面布局。如需直接访问，<a href="https://indexjiuyou.com">九游娱乐</a> 始终提供一致的页面体验。</p>
+        <p style="margin-top: 0.4rem; font-size: 0.8rem; color: #4f747e;">— 简洁 · 直接 · 无冗余 —</p>
+    </div>
+</div>
+</body>
+</html>
